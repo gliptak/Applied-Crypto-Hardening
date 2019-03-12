@@ -1,0 +1,15 @@
+language: minimal
+
+dist: xenial
+
+services:
+- docker
+
+jobs:
+  include:
+  - script: |
+      docker build -t appliedcrypto .
+      docker run -it -v ${TRAVIS_BUILD_DIR}:/repo appliedcrypto /bin/bash -c '
+        set -e # exit on failure
+        set -x # trace for debug
+        cd src; make' bash

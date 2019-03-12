@@ -10,7 +10,8 @@
 %%    I need dis
 %%%
 \RequirePackage{etoolbox}
-\RequirePackage{ifplatform}
+\ProvidesFile{ifplatform.sty}
+\newif\ifwindows\windowsfalse
 
 % for convenienc
 \newwrite\configfileout
